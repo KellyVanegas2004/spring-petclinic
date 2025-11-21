@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        maven "Maven3"
-        jdk "JDK25"
-    }
-
     stages {
 
         stage('Checkout') {
@@ -14,38 +9,35 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build & Test') {
             steps {
-                sh './mvnw clean compile'
+                bat "mvnw.cmd -Dmaven.test.skip=false clean test"
             }
         }
 
-        stage('Run Tests') {
+        stage('Publish Surefire Reports') {
             steps {
-                sh './mvnw test'
-            }
-            post {
-                always {
-                    junit '**/target/surefire-reports/*.xml'
-                }
+                junit 'target/surefire-reports/*.xml'
             }
         }
 
-        stage('Publish Dashboard') {
+        stage('Publish HTML Dashboard') {
             steps {
-                publishHTML(target: [
-                    reportDir: 'src/main/resources/static',
+                publishHTML([
+                    reportDir: 'target/classes/static',
                     reportFiles: 'dashboard_petclinic.html',
-                    reportName: 'Dashboard Manual Testing'
+                    reportName: 'Dashboard Pruebas PetClinic'
                 ])
             }
         }
-
     }
 
     post {
         always {
-            archiveArtifacts artifacts: 'target/**/*.jar', fingerprint: true
+            echo "Pipeline finalizado"
+        }
+        failure {
+            echo "Pipeline falló, revisar pruebas"
         }
     }
 }
