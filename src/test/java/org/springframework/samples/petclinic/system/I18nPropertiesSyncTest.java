@@ -1,7 +1,6 @@
 package org.springframework.samples.petclinic.system;
+
 import org.junit.jupiter.api.Disabled;
-
-
 
 import org.junit.jupiter.api.Test;
 
