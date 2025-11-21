@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard de Pruebas - PetClinic</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f7f7f7; padding: 20px; }
+h1 { color: #2c3e50; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+th { background: #34495e; color: white; }
+.status-pass { color: green; font-weight: bold; }
+.status-fail { color: red; font-weight: bold; }
+.row { transition: 0.3s; }
+.row:hover { background: #f0f0f0; }
+.header-section { margin-top: 30px; font-size: 20px; color: #2c3e50; }
+</style>
+</head>
+<body>
+
+<h1>📊 Dashboard PRO de Pruebas Manuales - Spring PetClinic</h1>
+<p>Este dashboard contiene las 15 pruebas manuales ejecutadas para el proyecto Spring PetClinic.</p>
+
+<h2 class="header-section">Listado de Pruebas</h2>
+
+<table>
+<tr>
+<th>ID</th>
+<th>Caso de Prueba</th>
+<th>Descripción</th>
+<th>Pasos</th>
+<th>Resultado</th>
+</tr>
+
+<tr class="row">
+<td>1</td>
+<td>Navegar a Home</td>
+<td>Validar que la página principal carga correctamente.</td>
+<td>Abrir navegador → Entrar a http://localhost:8080 → Ver imagen y logo.</td>
+<td class="status-pass">PASSED</td>
+</tr>
+
+<tr class="row">
+<td>2</td>
+<td>Listar Veterinarios</td>
+<td>Validar listado de veterinarios.</td>
+<td>Menú → Veterinarians → Ver tabla cargada.</td>
+<td class="status-pass">PASSED</td>
+</tr>
+
+<tr class="row">
+<td>3</td>
+<td>Buscar Dueños</td>
+<td>Validar búsqueda de dueños.</td>
+<td>Menú → Find Owners → Buscar por apellido.</td>
+<td class="status-pass">PASSED</td>
+</tr>
+
+<tr class="row">
+<td>4</td>
+<td>Registrar Dueño</td>
+<td>Validar creación de un nuevo Owner.</td>
+<td>Find Owners → Add Owner → Completar formulario → Guardar.</td>
+<td class="status-pass">PASSED</td>
+</tr>
+
+<tr class="row">
+<td>5</td>
+<td>Registrar Mascota</td>
+<td>Validar registro de nueva mascota.</td>
+<td>Owner → Add Pet → Completar formulario → Guardar.</td>
+<td class="status-pass">PASSED</td>
+</tr>
+
+<tr class="row">
+<td>6</td>
+<td>Editar Mascota</td>
+<td>Validar actualización de datos de mascota.</td>
+<td>Owner → Edit Pet → Cambiar info → Guardar.</td>
+<td class="status-pass">PASSED</td>
+</tr>
+
+<tr class="row">
+<td>7</td>
+<td>Registrar Visita</td>
+<td>Validar ingreso de visita.</td>
+<td>Owner → Add Visit → Completar → Guardar.</td>
+<td class="status-pass">PASSED</td>
+</tr>
+
+<tr class="row">
+<td>8</td>
+<td>Ver Lista de Mascotas</td>
+<td>Owner muestra lista correcta de mascotas.</td>
+<td>Entrar en Owner → Ver tabla de pets.</td>
+<td class="status-pass">PASSED</td>
+</tr>
+
+<tr class="row">
+<td>9</td>
+<td>Validación de Campos Vacíos</td>
+<td>Formulario debe mostrar errores.</td>
+<td>Add Owner → Enviar vacío.</td>
+<td class="status-pass">PASSED</td>
+</tr>
+
+<tr class="row">
+<td>10</td>
+<td>Sección Error (/oups)</td>
+<td>Validar error 500 controlado.</td>
+<td>Ir a /oups → Ver página de error.</td>
+<td class="status-pass">PASSED</td>
+</tr>
+
+<tr class="row">
+<td>11</td>
+<td>Responsive Design</td>
+<td>La web debe adaptarse en móvil.</td>
+<td>Reducir ventana → Menú hamburguesa aparece.</td>
+<td class="status-pass">PASSED</td>
+</tr>
+
+<tr class="row">
+<td>12</td>
+<td>Buscar Mascota inexistente</td>
+<td>No debe explotar al buscar algo que no existe.</td>
+<td>Find Owners → Buscar nombre incorrecto.</td>
+<td class="status-pass">PASSED</td>
+</tr>
+
+<tr class="row">
+<td>13</td>
+<td>Links del Menú funcionan</td>
+<td>Todos los enlaces del navbar funcionan.</td>
+<td>Click en cada menú.</td>
+<td class="status-pass">PASSED</td>
+</tr>
+
+<tr class="row">
+<td>14</td>
+<td>Cargar Veterinarios JSON</td>
+<td>Validar el endpoint JSON.</td>
+<td>GET /vets.json</td>
+<td class="status-pass">PASSED</td>
+</tr>
+
+<tr class="row">
+<td>15</td>
+<td>Tiempo de Respuesta</td>
+<td>La app debe cargar en menos de 3 seg.</td>
+<td>Abrir Home → medir tiempo.</td>
+<td class="status-pass">PASSED</td>
+</tr>
+
+</table>
+
+<p style="margin-top:40px; font-size:14px; color:#7f8c8d;">
+Reporte generado automáticamente para integración en Jenkins.
+</p>
+
+</body>
+</html>
